@@ -2,13 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { Navbar, Footer } from "../components";
 
 export default function Home() {
   return (
     <div>
-      <Navbar />
-
       <div>
         <h1> Nextjs Home Application </h1>
 
@@ -31,7 +28,6 @@ export default function Home() {
       <Link href="/ninjas">
         <a>See Ninja Listing </a>
       </Link>
-      <Footer />
     </div>
   );
 }
