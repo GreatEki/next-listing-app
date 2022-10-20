@@ -6,6 +6,10 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title> Ninja List | Home </title>
+        <meta name="keywords" content="ninjas" />
+      </Head>
       <div>
         <h1 className={styles.title}> Nextjs Home Application </h1>
 

@@ -9,7 +9,7 @@ const NotFound = () => {
       // router.go(-1) // This will redirect user to last url in browser history
       router.push("/");
     }, 3000);
-  }, []);
+  }, [router]);
   return (
     <div className="not-found">
       <h1> Oops.... </h1>
