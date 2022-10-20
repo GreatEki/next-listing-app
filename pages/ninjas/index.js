@@ -1,6 +1,16 @@
 import Head from "next/head";
+import NinjaCSS from "./ninjas.module.css";
 
-const Ninjas = () => {
+export const getStaticProps = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+
+  return {
+    props: { theNinjas: data },
+  };
+};
+
+const Ninjas = (props) => {
   return (
     <>
       <Head>
@@ -8,14 +18,17 @@ const Ninjas = () => {
         <meta name="keywords" content="ninjas" />
       </Head>
       <div>
-        <h1> Ninjas Index Page </h1>
-        <p>
-          {" "}
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book.{" "}
-        </p>
+        <h1> Ninjas </h1>
+        {props.theNinjas &&
+          props.theNinjas.map((ninja, index) => (
+            <div key={index}>
+              {" "}
+              <a className={NinjaCSS.single}>
+                {" "}
+                <h3> {ninja.name}</h3>
+              </a>{" "}
+            </div>
+          ))}
       </div>
     </>
   );
