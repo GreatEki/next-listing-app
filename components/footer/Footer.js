@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => {
-  return <div>Copyright 2022 Ekene Snippets</div>;
+  return <footer>Copyright 2022 Ekene Snippets</footer>;
 };
 
 export default Footer;

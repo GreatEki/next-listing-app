@@ -3,7 +3,7 @@ import { Navbar, Footer } from "../components";
 
 const MainLayout = ({ children }) => {
   return (
-    <div>
+    <div className="content">
       <Navbar />
       {children}
       <Footer />

@@ -7,16 +7,16 @@ export default function Home() {
   return (
     <div>
       <div>
-        <h1> Nextjs Home Application </h1>
+        <h1 className={styles.title}> Nextjs Home Application </h1>
 
-        <p>
+        <p className={styles.text}>
           {" "}
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry&apos;s standard dummy text
           ever since the 1500s, when an unknown printer took a galley of type
           and scrambled it to make a type specimen book.{" "}
         </p>
-        <p>
+        <p className={styles.text}>
           {" "}
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry&apos;s standard dummy text
@@ -26,7 +26,7 @@ export default function Home() {
       </div>
 
       <Link href="/ninjas">
-        <a>See Ninja Listing </a>
+        <a className={styles.btn}>See Ninja Listing </a>
       </Link>
     </div>
   );
