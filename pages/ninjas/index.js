@@ -41,9 +41,11 @@ const Ninjas = (props) => {
             throw new Error("You must  be authenticated");
           }
 
-          if (!res.ok && user)
+          if (!res.ok && user) {
             throw new Error("Failed to fetch data from cloud function");
-          return res, json();
+          }
+
+          return res.json();
         })
         .then((data) => {
           setGuides(data);
