@@ -19,9 +19,13 @@ const Navbar = () => {
           <Link href="/about">
             <a> About </a>
           </Link>
-          <Link href="/ninjas">
-            <a> Ninja Listing </a>
-          </Link>
+
+          {user && (
+            <Link href="/ninjas">
+              <a> Ninja Listing </a>
+            </Link>
+          )}
+
           <ul className="auth-links">
             {!user && (
               <li onClick={login} className="auth-links-item">
