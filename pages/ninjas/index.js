@@ -30,10 +30,12 @@ const Ninjas = (props) => {
         }
       )
         .then((res) => {
-          if (!res.ok) {
+          if (!res.ok && !user) {
             throw new Error("You must  be authenticated");
           }
 
+          if (!res.ok && user)
+            throw new Error("Failed to fetch data from cloud function");
           return res, json();
         })
         .then((data) => {
@@ -53,17 +55,37 @@ const Ninjas = (props) => {
         <title> Ninja List | Ninjas </title>
         <meta name="keywords" content="ninjas" />
       </Head>
-      <div>
-        <h1> Ninjas </h1>
-        {props.theNinjas &&
-          props.theNinjas.map((ninja, index) => (
-            <Link href={`/ninjas/ninja-details/${ninja.id}`} key={index}>
-              <a className={NinjaCSS.single}>
-                <h3> {ninja.name}</h3>
-              </a>
-            </Link>
-          ))}
-      </div>
+      {!authReady && <div> Loading.... </div>}
+
+      {error && (
+        <div>
+          <p className="error"> {error} </p>
+        </div>
+      )}
+
+      {guides && (
+        <>
+          <div className="info">
+            <p>
+              {" "}
+              Hey Ninjas. Your guide for this expedition is:{" "}
+              <span> {guides[0]} </span>
+            </p>
+          </div>
+
+          <div>
+            <h1> Ninjas </h1>
+            {props.theNinjas &&
+              props.theNinjas.map((ninja, index) => (
+                <Link href={`/ninjas/ninja-details/${ninja.id}`} key={index}>
+                  <a className={NinjaCSS.single}>
+                    <h3> {ninja.name}</h3>
+                  </a>
+                </Link>
+              ))}
+          </div>
+        </>
+      )}
     </>
   );
 };
