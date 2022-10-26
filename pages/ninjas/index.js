@@ -5,12 +5,19 @@ import Link from "next/link";
 import NinjaCSS from "./ninjas.module.css";
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await res.json();
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
 
-  return {
-    props: { theNinjas: data },
-  };
+    if (!res) throw new Error("Failed to get static props data");
+
+    const data = await res.json();
+
+    return {
+      props: { theNinjas: data },
+    };
+  } catch (err) {
+    console.log(err.message);
+  }
 };
 
 const Ninjas = (props) => {
