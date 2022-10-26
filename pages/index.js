@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
 export default function Home() {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <Head>
@@ -29,9 +32,11 @@ export default function Home() {
         </p>
       </div>
 
-      <Link href="/ninjas">
-        <a className={styles.btn}>See Ninja Listing </a>
-      </Link>
+      {user && (
+        <Link href="/ninjas">
+          <a className={styles.btn}>See Ninja Listing </a>
+        </Link>
+      )}
     </div>
   );
 }
