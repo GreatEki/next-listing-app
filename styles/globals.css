@@ -44,3 +44,19 @@ footer {
   color:#4979ff;
   text-decoration: underline;
 }
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-links {
+  list-style: none;
+  
+}
+
+.auth-links-item {
+  color: #333;
+  cursor: pointer;
+  /* text-decoration: none; */
+}
