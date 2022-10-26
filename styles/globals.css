@@ -52,6 +52,8 @@ footer {
 
 .auth-links {
   list-style: none;
+  display: inline-flex;
+  gap: 10px;
   
 }
 
@@ -59,4 +61,8 @@ footer {
   color: #333;
   cursor: pointer;
   /* text-decoration: none; */
+}
+
+.logout {
+  color: red;
 }

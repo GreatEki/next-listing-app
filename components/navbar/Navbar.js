@@ -4,7 +4,7 @@ import Image from "next/image";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, logout } = useContext(AuthContext);
   return (
     <nav>
       <div className="logo">
@@ -25,6 +25,10 @@ const Navbar = () => {
           <li onClick={login} className="auth-links-item">
             {" "}
             Login/Signup{" "}
+          </li>
+          <li onClick={logout} className="auth-links-item logout">
+            {" "}
+            Logout
           </li>
         </ul>
       </div>
