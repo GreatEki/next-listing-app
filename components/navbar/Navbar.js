@@ -22,14 +22,19 @@ const Navbar = () => {
           <a> Ninja Listing </a>
         </Link>
         <ul className="auth-links">
-          <li onClick={login} className="auth-links-item">
-            {" "}
-            Login/Signup{" "}
-          </li>
-          <li onClick={logout} className="auth-links-item logout">
-            {" "}
-            Logout
-          </li>
+          {!user && (
+            <li onClick={login} className="auth-links-item">
+              {" "}
+              Login/Signup{" "}
+            </li>
+          )}
+
+          {user && (
+            <li onClick={logout} className="auth-links-item logout">
+              {" "}
+              Logout
+            </li>
+          )}
         </ul>
       </div>
     </nav>
